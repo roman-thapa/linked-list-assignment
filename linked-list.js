@@ -40,6 +40,22 @@ class LinkedList {
         }
         this.size++
     }
+
+    print() {
+        if(this.isEmpty()) {
+            console.log("List is Empty")
+        }
+        else {
+            let curr = this.head
+            let listValue = ''
+            while (curr) {
+                listValue += `${curr.value} `
+                curr = curr.next
+            }
+            console.log(listValue)
+        }
+    }
 }
 
 const list = new LinkedList()
+list.print()
