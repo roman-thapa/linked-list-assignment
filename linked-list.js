@@ -58,4 +58,12 @@ class LinkedList {
 }
 
 const list = new LinkedList()
-list.print()
+list.print() // List is Empty
+
+list.add(5)
+list.add(10)
+list.add("hi")
+list.print() // 5 10 hi
+list.shift(12)
+list.print() // 12 5 10 hi 
+console.log(list.getSize()) // 4
