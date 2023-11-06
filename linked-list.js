@@ -41,6 +41,24 @@ class LinkedList {
         this.size++
     }
 
+    insert(value, index) {
+        if(index<0 || index>this.size) {
+          if(index<0) return console.log("Enter a +ve number")
+          return console.log("Enter a number less then " + this.size)
+        } 
+        if(index===0) this.shift(value)
+        else {
+            const node = new Node(value)
+            let prev = this.head
+            for(let i=0; i<index-1; i++) {
+                prev = prev.next
+            }
+            node.next = prev.next
+            prev.next = node
+            this.size++
+        }
+    }
+
     print() {
         if(this.isEmpty()) {
             console.log("List is Empty")
@@ -67,3 +85,7 @@ list.print() // 5 10 hi
 list.shift(12)
 list.print() // 12 5 10 hi 
 console.log(list.getSize()) // 4
+
+list.insert('world', 0)
+list.insert(55, 4)
+list.print() // world 12 5 10 55 hi 
