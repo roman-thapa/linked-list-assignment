@@ -59,6 +59,27 @@ class LinkedList {
         }
     }
 
+    remove(value) {
+        let current = this.head;
+        if(current.value === value) {
+            this.head = this.head.next;
+            this.size--
+            return
+        }
+        let prev = current;
+        current = current.next
+        while(prev.next) {
+            if(current.value === value) {
+                prev.next = current.next;
+                this.size--
+                return
+            }
+            prev = current;
+            current = current.next;
+        }
+        return console.log(value+' not found')
+    }
+
     print() {
         if(this.isEmpty()) {
             console.log("List is Empty")
@@ -89,3 +110,7 @@ console.log(list.getSize()) // 4
 list.insert('world', 0)
 list.insert(55, 4)
 list.print() // world 12 5 10 55 hi 
+list.remove(5)
+list.remove(55)
+list.remove(555) // 555 not found
+list.print() // world 12 10 hi 
